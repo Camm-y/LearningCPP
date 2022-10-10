@@ -11,7 +11,11 @@ using std::endl;
 void print_power(int x, int y);
 
 void learn(){
-
+    string sentence = "This is cock";
+    for (int i = 0; i<sentence.size(); i++){
+        if (sentence[i] == 'i') continue;
+        cout << sentence[i] << endl;
+    }
 }
 
 void do_while(){
