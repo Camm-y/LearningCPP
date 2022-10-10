@@ -11,6 +11,19 @@ using std::endl;
 void print_power(int x, int y);
 
 void learn(){
+
+}
+
+void do_while(){
+    string guess;
+    string password = "test";
+    do{
+        cout << "Password: ";
+        cin >> guess;
+    } while(guess != password);
+}
+
+void switches(){
     enum class Season{summer, spring, fall, winter};
     Season now = Season::winter;
     switch(now)
