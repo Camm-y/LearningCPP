@@ -14,6 +14,17 @@ void learn(){
     
 }
 
+void operands(){
+    //cpp operator procedence page shows LOTS of operands
+    double x, y;
+    x = 10;
+    y = x = 100;
+    cout << x << "\t" << y << endl;
+    x = 10;
+    (y = x) = 100;
+    cout << x << "\t" << y << endl;
+}
+
 void hex_oct()
 {
     int number = 0x30; //hex
