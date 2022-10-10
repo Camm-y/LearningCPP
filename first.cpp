@@ -10,6 +10,19 @@ using std::endl;
 
 void print_power(int x, int y);
 
+void learn()
+{
+    
+}
+
+void literals()
+{
+    auto x = -5U;
+    auto y = 5.0F;
+    // cant do this -> x = "string";
+    cout << x << endl << y;
+}
+
 void string_operations() {
     string greet = "What the fuck";
     greet.replace(greet.find("fuck"), 4, "****");
@@ -71,5 +84,5 @@ void print_power(int x, int y)
 
 int main()
 {
-    string_operations();
+    learn();
 }
