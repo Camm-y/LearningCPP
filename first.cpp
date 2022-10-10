@@ -11,7 +11,20 @@ using std::endl;
 void print_power(int x, int y);
 
 void learn(){
-    
+    enum class Season{summer, spring, fall, winter};
+    Season now = Season::winter;
+    switch(now)
+    {
+        case Season::summer:
+            break;
+        case Season::spring:
+            break;
+        case Season::winter:
+            cout << "It's winter hoe" << endl;
+            break;
+        case Season::fall:
+            break;
+    }
 }
 
 void operands(){
