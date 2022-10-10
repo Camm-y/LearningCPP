@@ -10,10 +10,10 @@ using std::endl;
 
 void print_power(int x, int y);
 
-
-int main()
-{
-    
+void censor() {
+    string greet = "What the fuck";
+    greet.replace(greet.find("fuck"), 4, "****");
+    cout << greet << endl;
 }
 
 
@@ -61,3 +61,7 @@ void print_power(int x, int y)
     cout << x << " to the power of " << y << " is " << base;
 }
 
+int main()
+{
+    censor();
+}
