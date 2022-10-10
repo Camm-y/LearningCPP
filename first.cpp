@@ -10,9 +10,16 @@ using std::endl;
 
 void print_power(int x, int y);
 
-void learn()
-{
+void learn(){
     
+}
+
+void hex_oct()
+{
+    int number = 0x30; //hex
+    int number2 = 030; //octal
+    int number3 = 30;
+    cout << number << endl << number2 << endl << std::hex << number3;
 }
 
 void literals()
