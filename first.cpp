@@ -10,10 +10,18 @@ using std::endl;
 
 void print_power(int x, int y);
 
-void censor() {
+void string_operations() {
     string greet = "What the fuck";
     greet.replace(greet.find("fuck"), 4, "****");
     cout << greet << endl;
+
+    cout << greet.substr(5,2) << endl;
+
+    cout << greet.find_first_of("ae") << endl;
+
+    if(greet.find_first_of("!") == -1) cout << "NO !" << endl;
+
+    if(greet.compare("What the ****") == 0) cout << "poopy" << endl;
 }
 
 
@@ -63,5 +71,5 @@ void print_power(int x, int y)
 
 int main()
 {
-    censor();
+    string_operations();
 }
