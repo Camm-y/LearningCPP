@@ -10,7 +10,21 @@ using std::endl;
 
 void print_power(int x, int y);
 
-void learn(){
+void learn() {
+    int answer = 11;
+    int points;
+    int guess;
+    cout << "Guess: ";
+    cin >> guess;
+    points = guess == answer ? 10 : 0;
+    cout << points << endl;
+    cin.ignore();
+    cout << "Guess: ";
+    std::cin >> guess;
+    guess == answer ? std::cout << "Good!" : std::cout << "Bad!";
+}
+
+void the_continue(){
     string sentence = "This is cock";
     for (int i = 0; i<sentence.size(); i++){
         if (sentence[i] == 'i') continue;
