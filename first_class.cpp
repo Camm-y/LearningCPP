@@ -3,10 +3,15 @@
 
 class User
 {
+    static int user_count;
     std::string status = "Gold";
     std::string first_name;
     std::string last_name;
     public:
+
+        static int get_ucount(){
+            return user_count;
+        }
         
         std::string get_status()
         {
@@ -42,9 +47,11 @@ class User
     }
     ~User()
     {
-        std::cout << "Destruct\n";
+        //std::cout << "Destruct\n";
     }
 };
+
+int User::user_count = 0; // static needs to be defined outside the class
 
 // int add_ifndef(std::vector<User> &users, User user)
 // {
