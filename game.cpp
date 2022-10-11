@@ -1,11 +1,32 @@
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <cstdlib>
 #include <ctime>
 #include <vector>
 
-using std::cout, std::cin, std::endl, std::string, std::vector;
+using namespace std;
 
+
+void highscore(int count){
+    ifstream input("highscore.txt");
+    if (!input.is_open()){
+        "Unable to open highscores";
+        return;
+    }
+    int highscore;
+    input >> highscore;
+    ofstream output("highscore.txt");
+    if (!output.is_open()){
+        "Unable to write to highscores";
+        return;
+    }
+    if (count < highscore){
+        output << count;
+    } else {
+        output << highscore;
+    }
+}
 
 void print_vector(vector<int> vec)
 {
@@ -23,6 +44,7 @@ void play_game(){
     cout << random << endl;
 
     while(true){
+        guess_count++;
         int guess;
         cin >> guess;
         guesses.push_back(guess);
@@ -37,10 +59,10 @@ void play_game(){
             cout << "Too high\n";
         }
     }
+    highscore(guess_count);
 }
 
-
-int main()
+void menu()
 {
     srand(time(NULL)); //random seed for the rand generator
     int choice;
@@ -53,12 +75,18 @@ int main()
         {
         case 0:
             cout << "Bye" << endl;
-            return 0;
+            break;
         case 1:
             play_game();
             break;
         }
     } while (choice != 0);
+}
+
+
+int main()
+{
+    menu();
     
     
 }
