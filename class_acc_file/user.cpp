@@ -1,5 +1,3 @@
-#include <iostream>
-#include <vector>
 #include "user.h" 
 
     int User::get_ucount()
@@ -35,7 +33,7 @@
 
     User::User()
     {
-        std::cout << "Default constructor";
+        //std::cout << "Default constructor";
     }
     User::User(std::string fname, std::string lname, std::string status)
     {
