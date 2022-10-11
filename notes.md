@@ -59,4 +59,26 @@ output << var
 void do_this(int x);
 void do_this(string x);
 works
+### -> However 
+- default arguments are a much better option
+
+
+## Multi-file compilation
+### -> types:
+- header file (x.h)
+- implementation file (x.cpp)
+- main file (required for .exe)
+Both need to include the header file
+--
+#ifndef CUSTOM_H (if not defined)
+#define CUSTOM_H
+
+### -> How to compile:
+- g++ file1.cpp file2.cpp -o name
+
+
+
+
+
+
 
