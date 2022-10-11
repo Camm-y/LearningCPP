@@ -54,29 +54,18 @@ class User
     {
         //std::cout << "Destruct\n";
     }
-    friend void output_status(User user);
+    
+    //friend void output_status(User user);
+    friend std::ostream& operator << (std::ostream& output, const User user);
+    friend std::istream& operator >> (std::istream& input, User &user);
 };
 
-void output_status(User user)
-{
-    std::cout << user.status;
-}
+// void output_status(User user)
+// {
+//     std::cout << user.status;
+// }
 
 int User::user_count = 0; // static needs to be defined outside the class
-
-// int add_ifndef(std::vector<User> &users, User user)
-// {
-//     for(int i=0; i<users.size(); i++)
-//     {
-//         if(users[i].first_name == user.first_name &&
-//         users[i].last_name == user.last_name)
-//         {
-//             return i;
-//         }
-//     }
-//     users.push_back(user);
-//     return users.size() - 1;
-// }
 
 void user_testing1()
 {
@@ -91,9 +80,25 @@ void user_testing1()
     std::cout << users[0].get_fname() << std::endl;
 }
 
+
+std::ostream& operator << (std::ostream& output, const User user)
+{
+    output << "First: " << user.first_name << ", Last: " << user.last_name
+    << "\nStatus: " << user.status << std::endl;
+    return output;
+}
+
+std::istream& operator >> (std::istream& input, User &user)
+{
+    input >> user.first_name >> user.last_name
+    >> user.status;
+    return input;
+}
+
 int main()
 {
     User user("Cam", "H", "Amazing");
-    std::cout << user.get_status() << std::endl;   
-    output_status(user);
+    // std::cout << user.get_status() << std::endl;
+    std::cin >> user;   
+    std::cout << user;
 }
