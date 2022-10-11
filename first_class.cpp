@@ -9,7 +9,8 @@ class User
     std::string last_name;
     public:
 
-        static int get_ucount(){
+        static int get_ucount()
+        {
             return user_count;
         }
         
@@ -22,16 +23,20 @@ class User
             this->status = status;
         }
 
-        std::string get_fname(){
+        std::string get_fname()
+        {
             return first_name;
         }
-        void set_fname(std::string fname){
+        void set_fname(std::string fname)
+        {
             this->first_name = fname;
         }
-        std::string get_lname(){
+        std::string get_lname()
+        {
             return last_name;
         }
-        void set_lname(std::string lname){
+        void set_lname(std::string lname)
+        {
             this->last_name = lname;
         }
 
