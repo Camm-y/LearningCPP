@@ -54,7 +54,13 @@ class User
     {
         //std::cout << "Destruct\n";
     }
+    friend void output_status(User user);
 };
+
+void output_status(User user)
+{
+    std::cout << user.status;
+}
 
 int User::user_count = 0; // static needs to be defined outside the class
 
@@ -89,4 +95,5 @@ int main()
 {
     User user("Cam", "H", "Amazing");
     std::cout << user.get_status() << std::endl;   
+    output_status(user);
 }
