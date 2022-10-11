@@ -21,4 +21,10 @@ else
 switch case is exactly like Java except can only switch integrals
 
 
+## IO Stream
+### -> files
+- ifstream -> input & ofstream -> output
+input >> var
+output << var
+
 
