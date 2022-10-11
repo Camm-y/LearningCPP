@@ -75,6 +75,15 @@ Both need to include the header file
 
 ### -> How to compile:
 - g++ file1.cpp file2.cpp -o name
+### - > Hidden compile:
+- If you want to distribute libraries but have code hidden (compiled)
+Can use -c during compilation to create a .o file (object)
+
+## Make Files
+### -> Automate build process
+- Only recompile files changed
+
+
 
 
 

@@ -8,14 +8,18 @@ struct Rectangle
     double width;
 };
 
-double area(double length, double width);
- //overload 1
-double area(double length);
+namespace utilz
+{
+    double area(double length, double width);
+    //overload 1
+    double area(double length);
 
-// overload 2
-double area(Rectangle rectangle);
+    // overload 2
+    double area(Rectangle rectangle);
 
-// default arguments! OP
-double pow(double base, int pow = 2);
+    // default arguments! OP
+    double pow(double base, int pow = 2);
+}
+
 
 #endif

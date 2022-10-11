@@ -5,29 +5,32 @@
 
 using namespace std;
 
-double area(double length, double width) //rectangle
+namespace uzilt
 {
-    return length * width;
-}
- //overload 1
-double area(double length) //square
-{
-    return length * length;
-}
-
-// overload 2
-double area(Rectangle rectangle)
-{
-    return rectangle.length * rectangle.width;
-}
-
-// default arguments! OP
-double pow(double base, int pow){
-    
-    int total = 1;
-    for(int i = 0; i<pow; i++)
+    double area(double length, double width) //rectangle
     {
-        total *= base;
+        return length * width;
     }
-    return total;
+    //overload 1
+    double area(double length) //square
+    {
+        return length * length;
+    }
+
+    // overload 2
+    double area(Rectangle rectangle)
+    {
+        return rectangle.length * rectangle.width;
+    }
+
+    // default arguments! OP
+    double pow(double base, int pow){
+        
+        int total = 1;
+        for(int i = 0; i<pow; i++)
+        {
+            total *= base;
+        }
+        return total;
+    }
 }
