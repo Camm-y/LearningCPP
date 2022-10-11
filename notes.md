@@ -46,3 +46,7 @@ output << var
 ### -> constructor
 - OO
 - Called to instantiate a class
+- Returns object of class.type
+
+### -> destructor
+- Used to safely remove objects from memory
