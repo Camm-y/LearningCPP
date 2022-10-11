@@ -45,6 +45,10 @@
     {
         //std::cout << "Destruct\n";
     }
+    void User::output()
+    {
+        std::cout << "I am a User\n";
+    }
     std::ostream& operator << (std::ostream& output, const User user);
     std::istream& operator >> (std::istream& input, User &user);
     

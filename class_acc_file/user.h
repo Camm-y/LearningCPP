@@ -24,9 +24,10 @@ class User
         User();
         User(std::string fname, std::string lname, std::string status);
         ~User();
+        virtual void output();
 
-    friend std::ostream& operator << (std::ostream& output, const User user);
-    friend std::istream& operator >> (std::istream& input, User &user);
+        friend std::ostream& operator << (std::ostream& output, const User user);
+        friend std::istream& operator >> (std::istream& input, User &user);
 };
 
 #endif
