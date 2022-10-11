@@ -29,6 +29,7 @@ output << var
 
 # Func types
 
+
 ## Class
 - Class defines an object
 - Creates a new object each time it's made
@@ -50,3 +51,12 @@ output << var
 
 ### -> destructor
 - Used to safely remove objects from memory
+
+
+## Function Overloading
+### -> having 2 versions of the same function name
+- depends on the parameters used (or not used)
+void do_this(int x);
+void do_this(string x);
+works
+
