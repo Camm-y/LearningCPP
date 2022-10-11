@@ -51,27 +51,7 @@
     std::istream& operator >> (std::istream& input, User &user);
     
 
-
-// void output_status(User user)
-// {
-//     std::cout << user.status;
-// }
-
 int User::user_count = 0; // static needs to be defined outside the class
-
-void user_testing1()
-{
-    User me;
-    me.set_fname("Cam");
-    me.set_lname("Hall");
-
-    std::cout << "Status: " << me.get_status() << std::endl;
-
-    std::vector<User> users;
-    users.push_back(me);
-    std::cout << users[0].get_fname() << std::endl;
-}
-
 
 std::ostream& operator << (std::ostream& output, const User user)
 {

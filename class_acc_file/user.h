@@ -25,5 +25,4 @@ class User
     friend std::istream& operator >> (std::istream& input, User &user);
 };
 
-
 #endif
