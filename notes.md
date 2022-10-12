@@ -97,6 +97,11 @@ Can use -c during compilation to create a .o file (object)
 - Destructor
 - Default constructor (only if there is no contrustor declared)
 
+## Summary of disallowing functions
+- C++ 11: f() = delete;
+- C++ 3: Declare the function to be private, and not define it
+- Private destructor stay out of stack
+
 
 
 
