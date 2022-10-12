@@ -83,12 +83,19 @@ Can use -c during compilation to create a .o file (object)
 ### -> Automate build process
 - Only recompile files changed
 
+# Advanced Area
 ## Why use const
 - Guards against inadvertent write to the variable
 - Self documenting
 - Enables compiler to do more optimization, making code tighter
 - const means the variable can be put in ROM
 
+## Compiler
+### Compiler silently writes 4 functions if they are not explicitly declared:
+- Copy constructor
+- Copy assignment operator
+- Destructor
+- Default constructor (only if there is no contrustor declared)
 
 
 
