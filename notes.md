@@ -83,6 +83,12 @@ Can use -c during compilation to create a .o file (object)
 ### -> Automate build process
 - Only recompile files changed
 
+## Why use const
+- Guards against inadvertent write to the variable
+- Self documenting
+- Enables compiler to do more optimization, making code tighter
+- const means the variable can be put in ROM
+
 
 
 
