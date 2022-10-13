@@ -4,6 +4,7 @@
 Card::Card(Ranks RANK, Suits SUIT)
     : Rank(RANK),
       Suit(SUIT)
+      // Above adds encapsulation to the getRank & getSuit func
 {
     // Nothing here
 }
