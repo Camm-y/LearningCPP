@@ -1,6 +1,10 @@
 #include <iostream>
 #include <cstdlib>
 #include <conio.h>
+#include <ctime>
+#include <unistd.h>
+
+
 
 using namespace std;
 
@@ -52,6 +56,8 @@ void draw()
     {
         cout << "#";
     }
+    cout << endl;
+    cout << "Score: " << score << endl;
 }
 
 void input()
@@ -101,16 +107,29 @@ void logic()
             break;
     }
     if (x > width || x < 0 || y > height || y < 0)
-    gameOver =  true;
-}
+        gameOver =  true;
+
+    if (x == fruitX && y == fruitY)
+    {
+        score++;
+        fruitX = rand() % width;
+        fruitY = rand() % height;
+    }
+        
+}   
 
 int main()
 {
+
+
+
+    srand(time(nullptr)); //seed for proper randomness
     setup();
     while (!gameOver)
     {
         draw();
         input();
         logic();
+        usleep(3000);
     }
 }
