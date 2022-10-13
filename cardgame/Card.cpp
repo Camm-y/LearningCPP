@@ -42,8 +42,6 @@ void Card::Print()
         std::cout << "K";
     else
         std::cout << "A";
-    
-    std::cout << " ";
 
     switch(Suit)
     {
