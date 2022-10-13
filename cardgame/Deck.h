@@ -3,8 +3,10 @@
 
 #include <deque>
 #include "Card.h"
-#include <iostream>
-#include <algorithm>
+#include <iostream>        
+#include <vector>       
+#include <ctime>        
+#include <cstdlib>
 
 class Deck
 {
@@ -13,7 +15,7 @@ public:
     ~Deck();
 
     void Print();
-    void Shuffle();
+    void Shuffle(int n);
 
     Card* TopCard(); // Selects the top card from the deck
     void PopCard(); // Discards the top card to the bottom of the deck

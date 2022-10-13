@@ -1,5 +1,6 @@
 #include "Deck.h"
-
+#include <algorithm>
+#include <random>
 
 
 Deck::Deck()
@@ -16,7 +17,6 @@ Deck::Deck()
 
     }
 }
-
 
 Deck::~Deck()
 {
@@ -37,9 +37,14 @@ void Deck::Print()
     }
 }
 //basic shuffle algorithm
-void Deck::Shuffle()
+void Deck::Shuffle(int n)
 {
-    std::random_shuffle(deck.begin(), deck.end());
+    std::random_device rd;
+    std::mt19937 g(rd());
+    for(int i = 0; i<n; i++){
+        std::shuffle(deck.begin(), deck.end(), g);
+    }
+    
 }
 
 Card* Deck::TopCard()
