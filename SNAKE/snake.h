@@ -32,6 +32,8 @@ void input();
 
 void logic();
 
+void fruit();
+
 };
 
 #endif

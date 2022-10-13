@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     Snake snakegame;
-    unsigned ms = 50;
+    unsigned ms = 100;
 
     srand(time(nullptr)); //seed for proper randomness
     snakegame.setup();

@@ -1,24 +1,35 @@
-#include "snake.h"
+#include <iostream>
+#include <cstdlib>
+#include <conio.h>
+#include <ctime>
+#include <unistd.h>
+
+
 
 using namespace std;
 
+bool gameOver;
+const int width = 20;
+const int height = 20;
+int x,y,fruitX,fruitY,score;
+int tailX[100], tailY[100];
+int nTail;
+enum eDirection{STOP=0, LEFT, RIGHT, UP, DOWN};
+eDirection dir;
 
-void Snake::setup()
+
+void setup()
 {
     gameOver = false;
     dir = STOP;
     x = width/2;
     y = height/2;
-    nTail = 0;
-    fruit();
+    fruitX = rand() % width;
+    fruitY = rand() % height;
     score = 0;
 }
 
-bool Snake::getStatus(){
-    return gameOver;
-}
-
-void Snake::draw()
+void draw()
 {   
     system("cls");
     for (int i = 0; i<width+2; i++)
@@ -63,7 +74,7 @@ void Snake::draw()
     cout << "Score: " << score << endl;
 }
 
-void Snake::input()
+void input()
 {
     if(_kbhit())
     {
@@ -90,7 +101,7 @@ void Snake::input()
     }
 }
 
-void Snake::logic()
+void logic()
 {
     int prevX = tailX[0];
     int prevY = tailY[0];
@@ -126,22 +137,29 @@ void Snake::logic()
     }
     if (x > width || x < 0 || y > height || y < 0)
         gameOver =  true;
-    
-     for(int i = 0; i<nTail; i++)
-         if (tailX[i] == x && tailY[i] == y)
-             gameOver = true;
+
     if (x == fruitX && y == fruitY)
     {
         score++;
         nTail++;
-        fruit();
-        
-    }
-        
-}
-
-void Snake::fruit()
-{
         fruitX = rand() % width;
         fruitY = rand() % height;
+    }
+        
+}  
+
+int main()
+{
+    //Snake snakegame;
+    unsigned ms = 50;
+
+    srand(time(nullptr)); //seed for proper randomness
+    setup();
+    while (!gameOver)
+    {
+        draw();
+        input();
+        logic();
+        usleep(ms*1000);
+    }
 }
