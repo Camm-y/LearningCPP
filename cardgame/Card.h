@@ -1,6 +1,8 @@
 #ifndef CARD_H
 #define CARD_H
 
+#include <iostream>
+
 class Card
 {
     public:
@@ -21,6 +23,7 @@ class Card
             SEVEN,
             EIGHT,
             NINE,
+            TEN,
             JACK,
             QUEEN,
             KING,
@@ -35,9 +38,13 @@ class Card
 
         virtual int getValue();
 
+        void Print();
+
     private:
         Ranks Rank;
         Suits Suit;
+    
+
 };
 
 #endif

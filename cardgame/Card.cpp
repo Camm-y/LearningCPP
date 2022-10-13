@@ -21,7 +21,7 @@ Card::Suits Card::getSuit(){
 }
 
 int Card::getValue(){
-    if(Rank <= JACK)
+    if(Rank <= TEN)
         return static_cast<int>(Rank);
 
     if(Rank <= KING)
@@ -29,5 +29,38 @@ int Card::getValue(){
 
     return 11;
 }
+
+void Card::Print()
+{
+    if(Rank <= TEN)
+        std::cout << Rank;
+    else if(Rank == JACK)
+        std::cout << "J";
+    else if(Rank == QUEEN)
+        std::cout << "Q";
+    else if(Rank == KING)
+        std::cout << "K";
+    else
+        std::cout << "A";
+    
+    std::cout << " ";
+
+    switch(Suit)
+    {
+        case HEARTS:
+            std::cout << "H";
+            break;
+        case DIAMONDS:
+            std::cout << "D";
+            break;
+        case SPADES:
+            std::cout << "S";
+            break;
+        case CLUBS:
+            std::cout << "C";
+            break;
+    }
+}
+
 
 
