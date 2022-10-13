@@ -102,6 +102,10 @@ Can use -c during compilation to create a .o file (object)
 - C++ 3: Declare the function to be private, and not define it
 - Private destructor stay out of stack
 
+## Deque datatype
+- Double ended queue - indexed sequence container htat allows fast insertion and deletion
+at both its beginning and its end
+- In addition, insertion and deletion at either end never invalidates pointers or references to the rest of the elements
 
 
 
