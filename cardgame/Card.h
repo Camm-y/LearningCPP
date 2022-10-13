@@ -1,4 +1,5 @@
-#pragma once
+#ifndef CARD_H
+#define CARD_H
 
 class Card
 {
@@ -12,7 +13,7 @@ class Card
         };
         enum Ranks
         {
-            TWO,
+            TWO = 2,
             THREE,
             FOUR,
             FIVE,
@@ -29,12 +30,14 @@ class Card
         Card(Ranks RANK, Suits SUIT);
         virtual ~Card();
 
-        int getRank();
-        int getSuit();
+        Ranks getRank();
+        Suits getSuit();
 
         virtual int getValue();
 
     private:
-        int Rank;
-        int Suit;
+        Ranks Rank;
+        Suits Suit;
 };
+
+#endif
