@@ -2,7 +2,7 @@
 
 using namespace std;
 
-
+/* Setup Function */
 void Snake::setup()
 {
     gameOver = false;
@@ -15,10 +15,12 @@ void Snake::setup()
     load_hs();
 }
 
+/* return games status */
 bool Snake::getStatus(){
     return gameOver;
 }
 
+/* draw the board and the snake */
 void Snake::draw()
 {   
     system("cls");
@@ -65,6 +67,7 @@ void Snake::draw()
     cout << "Highscore: " << hscore << endl;
 }
 
+/* Keyboard input */
 void Snake::input()
 {
     if(_kbhit())
@@ -92,6 +95,7 @@ void Snake::input()
     }
 }
 
+/* Snake movement logic*/
 void Snake::logic()
 {
     int prevX = tailX[0];
@@ -147,12 +151,14 @@ void Snake::logic()
         
 }
 
+/* Fruit spawn */
 void Snake::fruit()
 {
         fruitX = rand() % width;
         fruitY = rand() % height;
 }
 
+/* Calculate highscore */
 void Snake::highscore()
 {
     if (score <= hscore)
@@ -164,6 +170,7 @@ void Snake::highscore()
     }
 }
 
+/* Save highscore */
 void Snake::save_hs()
 {
     ofstream output("highscore.txt");
@@ -178,6 +185,7 @@ void Snake::save_hs()
     }
 }
 
+/* Load highscore */
 void Snake::load_hs()
 {
     ifstream input("highscore.txt");

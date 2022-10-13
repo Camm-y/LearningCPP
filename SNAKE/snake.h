@@ -25,19 +25,12 @@ public:
 bool getStatus();
 
 void setup();
-
 void draw();
-
 void input();
-
 void logic();
-
 void fruit();
-
 void highscore();
-
 void save_hs();
-
 void load_hs();
 
 };
