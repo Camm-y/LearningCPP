@@ -12,6 +12,7 @@ void Snake::setup()
     nTail = 0;
     fruit();
     score = 0;
+    load_hs();
 }
 
 bool Snake::getStatus(){
@@ -61,6 +62,7 @@ void Snake::draw()
     }
     cout << endl;
     cout << "Score: " << score << endl;
+    cout << "Highscore: " << hscore << endl;
 }
 
 void Snake::input()
@@ -124,8 +126,13 @@ void Snake::logic()
         default:
             break;
     }
-    if (x > width || x < 0 || y > height || y < 0)
-        gameOver =  true;
+    // if walls kill
+    // if (x > width || x < 0 || y > height || y < 0)
+    //     gameOver =  true;
+
+    // if walls dont kill
+    if(x >= width) x = 0; else if (x < 0) x = width -1;
+    if(y >= height) y = 0; else if (y < 0) y = height -1;
     
      for(int i = 0; i<nTail; i++)
          if (tailX[i] == x && tailY[i] == y)
@@ -135,7 +142,7 @@ void Snake::logic()
         score++;
         nTail++;
         fruit();
-        
+        highscore();
     }
         
 }
@@ -144,4 +151,39 @@ void Snake::fruit()
 {
         fruitX = rand() % width;
         fruitY = rand() % height;
+}
+
+void Snake::highscore()
+{
+    if (score <= hscore)
+    {
+        return;
+    } else
+    {
+        hscore++;
+    }
+}
+
+void Snake::save_hs()
+{
+    ofstream output("highscore.txt");
+    if (!output.is_open()){
+        "Unable to write to highscores";
+        return;
+    }
+    if (score < hscore){
+        output << score;
+    } else {
+        output << hscore;
+    }
+}
+
+void Snake::load_hs()
+{
+    ifstream input("highscore.txt");
+    if (!input.is_open()){
+        "Unable to open highscores";
+        return;
+    }
+    input >> hscore;
 }
