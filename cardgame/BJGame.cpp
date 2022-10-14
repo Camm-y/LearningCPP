@@ -8,12 +8,16 @@ Deck BlackJack::getDeck()
     return this->deck;
 }
 
-void BlackJack::deal(Player p1, Player p2, int n)
+void BlackJack::deal(int n)
 {
-    for(int i=0; i<n; i++){
-        p1.hit(this->deck.TopCard());
-        p2.hit(this->deck.TopCard());
+    for (int i=0; i<n; i++)
+    {
+        for(Player p : players)
+        {
+            p.hit(this->deck.TopCard());
+        }
     }
+    
     
 }
 
@@ -60,7 +64,7 @@ void BlackJack::single_game()
     Player player;
     Player house;
     this->deck.Shuffle(3);
-    deal(player, house, 2);
+    deal(2);
     
 }
 

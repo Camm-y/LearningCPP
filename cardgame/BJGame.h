@@ -7,11 +7,14 @@
 class BlackJack{
 
     Deck deck;
-    Deck discard;
+    std::vector<Player> players;
+    //Deck discard;
+    bool state;
+
 
     public:
         Deck getDeck();
-        void deal(Player p1, Player p2, int n);
+        void deal(int n);
         void menu();
         void single_game();
         void multi_game();
