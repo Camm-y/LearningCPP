@@ -1,4 +1,5 @@
 #include "BJGame.h"
+#include <stdlib.h>
 
 using namespace std;
 
@@ -16,9 +17,7 @@ void BlackJack::deal(int n)
         {
             p.hit(this->deck.TopCard());
         }
-    }
-    
-    
+    } 
 }
 
 void BlackJack::menu()
@@ -33,19 +32,21 @@ void BlackJack::menu()
         {
         case 0:
             cout << "Bye" << endl;
+            exit(0);
             break;
         case 1:
             system("cls");
+            choice = 0;
             break;
         }
     } while (choice != 0);
-
+    int choice2;
     do
     {
         cout << "0. SinglePlayer" << endl << "1. MultiPlayer" << endl;
-        cin >> choice;
+        cin >> choice2;
 
-        switch(choice)
+        switch(choice2)
         {
         case 0:
             cout << "SinglePlayer Mode" << endl;
@@ -56,16 +57,44 @@ void BlackJack::menu()
             multi_game();
             break;
         }
-    } while (choice != 0);
+    } while (choice2 != 0);
+}
+
+void BlackJack::multi_game()
+{
+
 }
 
 void BlackJack::single_game()
 {
     Player player;
     Player house;
+    players.push_back(house);
+    players.push_back(player);
     this->deck.Shuffle(3);
     deal(2);
-    
+    play();  
+}
+
+void BlackJack::play()
+{
+    gameOver = false;
+    for(int i = 0; i < players.size()-1; i++)
+        {
+            double bet;
+            cout << "Player " << i << "'s" << " Turn" << endl;
+            cout << "Bet: " << endl;
+            cin >> bet;
+            bets.push_back(bet);
+        }
+    while (gameOver == false)
+    {
+        for(int i = 0; i < players.size()-1; i++)
+        {
+            
+        }
+
+    }
 }
 
 

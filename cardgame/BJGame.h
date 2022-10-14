@@ -8,8 +8,9 @@ class BlackJack{
 
     Deck deck;
     std::vector<Player> players;
+    std::vector<double> bets;
     //Deck discard;
-    bool state;
+    bool gameOver;
 
 
     public:
@@ -18,6 +19,7 @@ class BlackJack{
         void menu();
         void single_game();
         void multi_game();
+        void play();
         
         
 
