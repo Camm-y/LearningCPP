@@ -43,8 +43,7 @@ void Deck::Shuffle(int n)
     std::mt19937 g(rd());
     for(int i = 0; i<n; i++){
         std::shuffle(deck.begin(), deck.end(), g);
-    }
-    
+    }  
 }
 
 Card* Deck::TopCard()
