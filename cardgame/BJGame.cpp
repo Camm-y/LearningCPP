@@ -70,9 +70,7 @@ void BlackJack::multi_game()
 void BlackJack::single_game()
 {
     Player player;
-    Player house;
     players.push_back(player);
-    players.push_back(house);
     this->deck.Shuffle(3);
     deal(2);
     play();  
@@ -86,7 +84,7 @@ void BlackJack::play()
         - if 0 they do not play the round
         - if the bet exceeds the player balance they do not play the round
     */
-    for(int i = 1; i < players.size(); i++)
+    for(int i = 0; i < players.size()-1; i++)
         {
             system("cls");
             double bet;
@@ -116,7 +114,7 @@ void BlackJack::play()
             - Player can choose to hit (gain a new card)
             - Player can choose to fold (use only their current hand)
         */
-        for(int i = 1; i < players.size(); i++)
+        for(int i = 0; i < players.size()-1; i++)
         {
             if(players[i].getState())
             {
@@ -129,23 +127,37 @@ void BlackJack::play()
                     {
                         cout << "Hitting Player " << i << endl;
                         players[i].hit(this->deck.TopCard());
+                        players[i].updateScore();
                         this->deck.Discard();
+                        
                     }
                     else if (choice == 1)
                     {
                         cout << "Player " << i << " folds" << endl;
-                        players[i].fold();
                         players[i].setState(false);
                     }
                 }
-            }
-            /* 
-                Houses turn to play
-                - house will hit on total<17 or fold on total>17
-            */
-
-            
+            }            
         }
+        /* 
+            Houses turn to play
+            - house will hit on total<17 or fold on total>17
+        */
+        if(house.getScore() < 17)
+        {
+            cout << "The House chooses to hit." << endl;
+            house.hit(this->deck.TopCard());
+            house.updateScore();
+            this->deck.Discard();
+        } else
+        {
+            cout << "The house chooses to fold." << endl;
+            house.setState(false);
+        }
+
+        /*
+            End of turn logic 
+        */
     }
 }
 

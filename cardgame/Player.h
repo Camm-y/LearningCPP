@@ -19,7 +19,7 @@ class Player{
         void hit(Card* card);
         void fold();
         int getScore();
-        void setScore();
+        void updateScore();
         bool getState();
         void setState(bool state);
 };

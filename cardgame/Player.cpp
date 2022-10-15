@@ -32,7 +32,7 @@ int Player::getScore()
     return this->score;
 }
 
-void Player::setScore()
+void Player::updateScore()
 {
     int score;
     for (Card* c : this->hand)
