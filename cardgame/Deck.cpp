@@ -55,3 +55,8 @@ void Deck::PopCard()
     deck.push_back(deck.front()); //this will create a copy of the card
     deck.erase(deck.begin()); //this clears the copy
 }
+
+void Deck::Discard()
+{
+    deck.erase(deck.begin());
+}

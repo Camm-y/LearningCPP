@@ -7,16 +7,21 @@ class Player{
 
     std::vector<Card*> hand;
     int score;
-    double balance;
+    double balance = 5000;
+    bool isPlaying;
 
     public:
 
         std::vector<Card*> getHand();
         //Card* discard(Card* card);
         double bet(double bet);
+        double getBalance();
         void hit(Card* card);
         void fold();
-        int calculate_score();
+        int getScore();
+        void setScore();
+        bool getState();
+        void setState(bool state);
 };
 
 

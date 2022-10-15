@@ -20,11 +20,6 @@ class BlackJack{
         void single_game();
         void multi_game();
         void play();
-        
-        
-
-        
-        
 
 };
 

@@ -19,6 +19,7 @@ public:
 
     Card* TopCard(); // Selects the top card from the deck
     void PopCard(); // Discards the top card to the bottom of the deck
+    void Discard(); // Discards the top card from the deck
 
 private:
 //pointers and virtual functions to make use of polymorphism
