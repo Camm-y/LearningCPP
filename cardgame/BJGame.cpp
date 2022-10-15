@@ -98,9 +98,11 @@ void BlackJack::play()
             cin >> choice; 
             if(choice == 0)
             {
+                cout << "Hitting Player " << i << endl;
                 players[i].hit(this->deck.TopCard());
             } else if (choice == 1)
             {
+                cout << "Player " << i << " folds" << endl;
                 players[i].fold();
             }
         }
