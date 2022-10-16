@@ -8,13 +8,18 @@ std::vector<Card*> Player::getHand()
 
 double Player::bet(double bet)
 {
-    this->balance = this->balance-bet;
+    this->balance -= bet;
     return bet;
 }
 
 double Player::getBalance()
 {
     return this->balance;
+}
+
+void Player::pay(double money)
+{
+    this->balance += money;
 }
 
 void Player::hit(Card* card)
@@ -51,3 +56,4 @@ void Player::setState(bool state)
 {
     this->isPlaying = state;
 }
+

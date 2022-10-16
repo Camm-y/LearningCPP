@@ -8,11 +8,11 @@ class BlackJack{
 
     Deck deck;
     Player house;
-    std::vector<Player> players;
+    std::vector<Player*> players;
     std::vector<double> bets;
     //Deck discard;
     bool gameOver;
-
+    bool playersOver;
 
     public:
         Deck getDeck();
@@ -21,6 +21,7 @@ class BlackJack{
         void single_game();
         void multi_game();
         void play();
+        void printGame();
 
 };
 
