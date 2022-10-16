@@ -9,7 +9,7 @@ void read_from_better(string filename)
 {
     std::ifstream file (filename);
     string line;
-    getline(file, line);
+    std::getline(file, line);
     std::cout << line << std::endl;
 }
 

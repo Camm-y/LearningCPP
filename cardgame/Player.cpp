@@ -1,30 +1,32 @@
 #include "Player.h"
 
-
 std::vector<Card*> Player::getHand()
 {
-    return this->hand;
+    return hand;
 }
 
 double Player::bet(double bet)
 {
-    this->balance -= bet;
+    balance -= bet;
     return bet;
 }
 
 double Player::getBalance()
 {
-    return this->balance;
+    return balance;
 }
 
 void Player::pay(double money)
 {
-    this->balance += money;
+    balance += money;
 }
 
 void Player::hit(Card* card)
 {
     hand.push_back(card);
+    std::cout << card->getValue() << std::endl;
+    score += card->getValue();
+    system("pause");
 }
 
 void Player::fold()
@@ -34,26 +36,16 @@ void Player::fold()
 
 int Player::getScore()
 {
-    return this->score;
-}
-
-void Player::updateScore()
-{
-    int score;
-    for (Card* c : this->hand)
-    {
-        score += c->getValue();
-    }
-    this->score = score;
+    return score;
 }
 
 bool Player::getState()
 {
-    return this->isPlaying;
+    return isPlaying;
 }
 
 void Player::setState(bool state)
 {
-    this->isPlaying = state;
+    isPlaying = state;
 }
 

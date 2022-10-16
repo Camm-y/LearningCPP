@@ -36,7 +36,7 @@ class Card
         Ranks getRank();
         Suits getSuit();
 
-        virtual int getValue();
+        int getValue();
 
         void Print();
 

@@ -10,7 +10,6 @@ class BlackJack{
     Player house;
     std::vector<Player*> players;
     std::vector<double> bets;
-    //Deck discard;
     bool gameOver;
     bool playersOver;
 

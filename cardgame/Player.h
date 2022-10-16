@@ -6,7 +6,7 @@
 class Player{
 
     std::vector<Card*> hand;
-    int score;
+    int score = 0;
     double balance = 5000;
     bool isPlaying;
 
@@ -19,7 +19,6 @@ class Player{
         void hit(Card* card);
         void fold();
         int getScore();
-        void updateScore();
         bool getState();
         void setState(bool state);
 

@@ -12,7 +12,7 @@ ostream& operator << (ostream& output, Card* card)
 
 Deck BlackJack::getDeck()
 {
-    return this->deck;
+    return deck;
 }
 
 void BlackJack::deal(int n)
@@ -21,11 +21,11 @@ void BlackJack::deal(int n)
     {
         for(Player* p : players)
         {
-            p->hit(this->deck.TopCard());
-            this->deck.Discard();
+            p->hit(deck.TopCard());
+            deck.Discard();
         }
-        this->house.hit(this->deck.TopCard());
-        this->deck.Discard();
+        house.hit(deck.TopCard());
+        deck.Discard();
     } 
 }
 
@@ -33,7 +33,7 @@ void BlackJack::printGame()
 {
     Sleep(1000);
     system("cls");
-    std::vector<Card*> houseHand = this->house.getHand();
+    std::vector<Card*> houseHand = house.getHand();
     Card* h1 = houseHand.front();
     Card* h2 = houseHand.back();
     if (!playersOver)
@@ -99,6 +99,7 @@ void BlackJack::play()
             printGame();
             if(players[i]->getState())
             {
+                cout << players[i]->getScore() << endl;
                 if(players[i]->getScore() < 21)
                 {
                     while(players[i]->getState())
@@ -108,25 +109,28 @@ void BlackJack::play()
                         cin >> choice; 
                         if(choice == 1)
                         {
-                            cout << "Hitting Player " << i << endl;
-                            players[i]->hit(this->deck.TopCard());
-                            players[i]->updateScore();
-                            this->deck.Discard();
+                            cout << "Hitting Player " << i+1 << endl;
+                            players[i]->hit(deck.TopCard());
+                            deck.Discard();
+                            printGame();
                         }
                         else if (choice == 0)
                         {
                             cout << "Player " << i+1 << " stays" << endl;
                             players[i]->setState(false);
+                            printGame();
                         }
                     }
                 } else if (players[i]->getScore() == 21)
                 {
-                    cout << "Player " << i+1 << " scores BlackJack!" << endl;
                     players[i]->pay(bets[i]*2);
                     players[i]->setState(false);
+                    printGame();
+                    cout << "Player " << i+1 << " scores BlackJack!" << endl;   
                 } else {
-                    cout << "Player " << i+1 << " has bust!" << endl;
                     house.pay(bets[i]);
+                    printGame();
+                    cout << "Player " << i+1 << " has bust!" << endl;
                 }
             }            
         }
@@ -135,15 +139,17 @@ void BlackJack::play()
             - house will hit on total<16 or fold on total>16
         */
         if(house.getScore() < 16)
-        {
+        { 
+            house.hit(deck.TopCard());
+            deck.Discard();
+            printGame();
             cout << "The House chooses to hit." << endl;
-            house.hit(this->deck.TopCard());
-            house.updateScore();
-            this->deck.Discard();
         } else
         {
-            cout << "The house chooses to stay." << endl;
             house.setState(false);
+            printGame();
+            cout << "The house chooses to stay." << endl;
+            
         }
         /*
             End of turn logic 
@@ -161,7 +167,7 @@ void BlackJack::single_game()
 {
     Player player;
     players.push_back(&player);
-    this->deck.Shuffle(3);
+    deck.Shuffle(3);
     deal(2);
     play();  
 }
